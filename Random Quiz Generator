@@ -1,0 +1,41 @@
+# =========================================
+# Random Quiz Generator
+# By: Abood
+# Description:
+# This project generates random questions
+# using the random library and checks answers.
+#
+# مشروع يولد أسئلة عشوائية
+# ويحسب النتيجة النهائية
+# =========================================
+
+import random
+
+# قائمة الأسئلة (سؤال + جواب)
+questions = [
+    {"question": "What is 2 + 2?", "answer": "4"},
+    {"question": "What is the capital of France?", "answer": "paris"},
+    {"question": "What is 5 * 3?", "answer": "15"},
+    {"question": "What is 10 - 6?", "answer": "4"},
+]
+
+score = 0
+
+# خلط الأسئلة عشوائياً
+random.shuffle(questions)
+
+print("🎯 Welcome to the Random Quiz!")
+print("-" * 30)
+
+# طرح 3 أسئلة فقط عشوائياً
+for q in random.sample(questions, 3):
+    user_answer = input(q["question"] + " ").lower()
+
+    if user_answer == q["answer"]:
+        print("✅ Correct!")
+        score += 1
+    else:
+        print("❌ Wrong!")
+
+print("-" * 30)
+print(f"Your score: {score} / 3")
